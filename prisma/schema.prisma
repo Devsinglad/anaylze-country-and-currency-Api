@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+// Countries table - stores all country data with currency and GDP info
+model Country {
+  id                Int       @id @default(autoincrement())
+  name              String    @unique @db.VarChar(255)
+  capital           String?   @db.VarChar(255)
+  region            String?   @db.VarChar(100)
+  population        BigInt
+  currency_code     String?   @db.VarChar(10)
+  exchange_rate     Decimal?  @db.Decimal(20, 6)
+  estimated_gdp     Decimal?  @db.Decimal(30, 2)
+  flag_url          String?   @db.VarChar(500)
+  last_refreshed_at DateTime  @default(now())
+
+  @@index([region])
+  @@index([currency_code])
+  @@map("countries")
+}
+
+// System status table - stores global last refresh timestamp
+model SystemStatus {
+  id                Int      @id @default(autoincrement())
+  last_refreshed_at DateTime @default(now())
+
+  @@map("system_status")
+}

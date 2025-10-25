@@ -1,0 +1,65 @@
+20251025	13:44:52	9bea0033-6cef-4f7a-b2e8-f786c05c3a64	NotFoundError: Route does not exist
+20251025	13:44:53	0ed81303-56ee-4016-a74e-6daa4038296a	NotFoundError: Route does not exist
+20251025	16:31:19	a58e48f3-169c-4f18-b6a4-58d959dae62b	NotFoundError: Route does not exist
+20251025	16:31:20	8d41b160-089f-4b45-84b6-c8ffc9fc70d7	NotFoundError: Route does not exist
+20251025	16:56:46	35d84e22-ae3a-4294-8fbe-9d38883d2f80	PrismaClientValidationError: 
+Invalid `prisma.country.findFirst()` invocation in
+/Users/uchenna/web_dev/backend-wizards-stage2/src/services/contoller/getCountryByName.ts:13:46
+
+  10 try {
+  11     const { name } = req.params;
+  12 
+→ 13     const country = await prisma.country.findFirst({
+           where: {
+             name: {
+               equals: "Albania",
+               mode: "insensitive",
+               ~~~~
+         ?     in?: String[],
+         ?     notIn?: String[],
+         ?     lt?: String | StringFieldRefInput,
+         ?     lte?: String | StringFieldRefInput,
+         ?     gt?: String | StringFieldRefInput,
+         ?     gte?: String | StringFieldRefInput,
+         ?     contains?: String | StringFieldRefInput,
+         ?     startsWith?: String | StringFieldRefInput,
+         ?     endsWith?: String | StringFieldRefInput,
+         ?     search?: String,
+         ?     not?: String | NestedStringFilter
+             }
+           }
+         })
+
+Unknown argument `mode`. Did you mean `lte`? Available options are marked with ?.
+20251025	17:04:14	40a199dd-021f-48d6-be91-9331f77cbab9	PrismaClientValidationError: 
+Invalid `prisma.country.findMany()` invocation in
+/Users/uchenna/web_dev/backend-wizards-stage2/src/services/contoller/getAllCountryControler.ts:31:48
+
+  28 else if (sort === 'population_desc') orderBy = { population: 'desc' };
+  29 else if (sort === 'population_asc') orderBy = { population: 'asc' };
+  30 
+→ 31 const countries = await prisma.country.findMany({
+       where: {
+         region: {
+           equals: "africa",
+           mode: "insensitive",
+           ~~~~
+     ?     in?: String[] | Null,
+     ?     notIn?: String[] | Null,
+     ?     lt?: String | StringFieldRefInput,
+     ?     lte?: String | StringFieldRefInput,
+     ?     gt?: String | StringFieldRefInput,
+     ?     gte?: String | StringFieldRefInput,
+     ?     contains?: String | StringFieldRefInput,
+     ?     startsWith?: String | StringFieldRefInput,
+     ?     endsWith?: String | StringFieldRefInput,
+     ?     search?: String,
+     ?     not?: String | NestedStringNullableFilter | Null
+         }
+       },
+       orderBy: {
+         estimated_gdp: "desc"
+       }
+     })
+
+Unknown argument `mode`. Did you mean `lte`? Available options are marked with ?.

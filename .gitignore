@@ -1,0 +1,19 @@
+# Prisma
+/node_modules
+/src/generated
+.env
+
+# Logs and caches
+/cache
+/logs
+*.log
+
+# OS & editor junk
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Build outputs
+dist/
+build/
