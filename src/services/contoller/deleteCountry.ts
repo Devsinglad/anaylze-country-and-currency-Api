@@ -25,12 +25,7 @@ export const deleteCountryByName = async (req: Request, res: Response, next: Nex
             where: { id: country.id }
         });
 
-        res.status(200).json({
-            message: 'Country deleted successfully',
-            country: {
-                name: country.name
-            }
-        });
+        res.status(204).send();
     } catch (error) {
         console.error('Delete country error:', error);
         res.status(500).json({
