@@ -4,7 +4,7 @@ A RESTful API that fetches country data from external APIs, stores it in a datab
 
 ## Live Demo
 **Base URL:** `https://your-app-domain.com`  
-**GitHub Repository:** `https://github.com/your-username/backend-wizards-stage2`
+**GitHub Repository:** `https://github.com/Devsinglad/anaylze-country-and-currency-Api.git`
 
 ## 📋 Features
 - Fetch and cache country data from external APIs
@@ -30,7 +30,7 @@ A RESTful API that fetches country data from external APIs, stores it in a datab
 ### Steps
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/backend-wizards-stage2.git
+   git clone https://github.com/Devsinglad/anaylze-country-and-currency-Api.git
    cd backend-wizards-stage2
    ```
 
@@ -232,10 +232,7 @@ This project is licensed under the MIT License.
 
 ---
 
-**Submission Details:**
-- **Full Name:** Your Full Name
-- **Email:** your.email@example.com
-- **API Base URL:** https://your-app-domain.com
+
 - **GitHub Repo:** https://github.com/Devsinglad/anaylze-country-and-currency-Api.git
 
 *Built for Backend Wizards Stage 2 Challenge*
