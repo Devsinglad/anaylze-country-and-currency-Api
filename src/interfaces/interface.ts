@@ -31,15 +31,16 @@ export interface ExchangeRateAPIResponse {
 export interface Country {
     id: number;
     name: string;
-    capital?: string;
-    region?: string;
+    capital: string | null;
+    region: string | null;
     population: bigint;
-    currency_code?: string;
-    exchange_rate?: number;
-    estimated_gdp?: number;
-    flag_url?: string;
+    currency_code: string | null;
+    exchange_rate: Decimal | null;
+    estimated_gdp: Decimal | null;
+    flag_url: string | null;
     last_refreshed_at: Date;
 }
+
 export interface TopCountry {
     name: string;
     estimated_gdp: number | null;

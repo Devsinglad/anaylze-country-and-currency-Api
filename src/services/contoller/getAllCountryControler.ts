@@ -35,7 +35,7 @@ export const getAllCountries = async (req: Request, res: Response, next: NextFun
             name: country.name,
             capital: country.capital,
             region: country.region,
-            population: Number(country.population),
+            population: Number(country.population) ?? 0,
             currency_code: country.currency_code ?? null,
             exchange_rate: country.exchange_rate ? Number(country.exchange_rate) : null,
             estimated_gdp: country.estimated_gdp ? Number(country.estimated_gdp) : null,

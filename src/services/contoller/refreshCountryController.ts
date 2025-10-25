@@ -6,7 +6,7 @@ import * as fs from 'fs';
 import { generateSummaryImage } from "../../utils/image";
 import { fetchCountryData } from "../../controller/fetchCountryApi";
 import { fetchExchangeRates } from "../../controller/fetchRateApi";
-import { CountryAPIResponse, CountryFromDB } from "../../interfaces/interface";
+import { CountryAPIResponse, CountryFromDB, TopCountry } from "../../interfaces/interface";
 import { calculateEstimatedGDP } from "../../utils/gdpCalculation";
 import prisma from "../../prisma";
 
@@ -97,12 +97,12 @@ export const refreshCountryData = async (req: Request, res: Response, next: Next
         });
 
         // Convert Decimal to number for image generation
-        const topCountriesFormatted = topCountries.map((country: CountryFromDB) => ({
+        // Convert Decimal to number for image generation
+        const topCountriesFormatted: TopCountry[] = topCountries.map((country: CountryFromDB) => ({
             name: country.name,
             estimated_gdp: country.estimated_gdp ? Number(country.estimated_gdp) : null,
-            population: country.population
+            population: Number(country.population) 
         }));
-
         // Generate summary image using the utility function
         await generateSummaryImage({
             totalCountries,
